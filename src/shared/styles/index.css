@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: #0e131b;
+    --color-text: #f8fcfd9f;
+    --color-secondary-text: #5b5f60;
+    --color-accent: #001bfe;
+    --color-border: #434748;
+  }
+}
+
+@theme inline {
+  --color-background: var(--color-background);
+  --color-text: var(--color-text);
+  --color-secondary-text: var(--color-secondary-text);
+  --color-accent: var(--color-accent);
+  --color-border: var(--color-border);
+
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: ease;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+button {
+  cursor: pointer;
+}
+
+.section {
+  padding: 0.5rem;
+}
+
+.custom-scrollbar {
+  z-index: 999;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    transition: all 0.3s ease;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield; /* Standard property */
+}

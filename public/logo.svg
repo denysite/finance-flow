@@ -1,0 +1,27 @@
+<svg width="64" height="64" viewBox="4 4 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161B22"/>
+      <stop offset="1" stop-color="#0B0F14"/>
+    </linearGradient>
+
+    <linearGradient id="accent" x1="20" y1="16" x2="46" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4F6BFF"/>
+      <stop offset="1" stop-color="#1D2BFF"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="4" y="4" width="56" height="56" rx="18" fill="url(#bg)"/>
+  <rect x="4.5" y="4.5" width="55" height="55" rx="17.5" stroke="rgba(255,255,255,0.08)"/>
+
+  <path
+    d="M24 19C24 17.8954 24.8954 17 26 17H42C43.1046 17 44 17.8954 44 19C44 20.1046 43.1046 21 42 21H30.828L43.414 33.586C44.195 34.367 44.195 35.633 43.414 36.414C42.633 37.195 41.367 37.195 40.586 36.414L28 23.828V35C28 36.1046 27.1046 37 26 37C24.8954 37 24 36.1046 24 35V19Z"
+    fill="url(#accent)"
+  />
+
+  <path
+    d="M40 45C40 46.1046 39.1046 47 38 47H22C20.8954 47 20 46.1046 20 45C20 43.8954 20.8954 43 22 43H33.172L20.586 30.414C19.8049 29.633 19.8049 28.367 20.586 27.586C21.367 26.8049 22.633 26.8049 23.414 27.586L36 40.172V29C36 27.8954 36.8954 27 38 27C39.1046 27 40 27.8954 40 29V45Z"
+    fill="white"
+    fill-opacity="0.92"
+  />
+</svg>
