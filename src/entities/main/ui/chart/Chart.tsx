@@ -44,8 +44,8 @@ export const Chart = ({ apiData }: ChartProps) => {
         <Area
           type="monotone"
           dataKey="rate"
-          stroke="var(--color-text)"
-          fill="var(--color-text)"
+          stroke="var(--chart-bg)"
+          fill="var(--chart-bg)"
         />
       </AreaChart>
     </ResponsiveContainer>

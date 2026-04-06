@@ -1,9 +1,13 @@
 import { useFetchHistory } from "@/shared/api/currency/currency.query";
 import type { IHistoryResponse } from "@/shared/api/currency/currency.types";
 import { useAppStore } from "@/shared/store/app.store";
-import { Chart } from "./ui/chart/Chart";
+import { lazy, Suspense } from "react";
 import { Header } from "./ui/header/Header";
 import { Settings } from "./ui/settings/Settings";
+
+const Chart = lazy(() =>
+  import("./ui/chart/Chart").then((module) => ({ default: module.Chart })),
+);
 
 export const Main = () => {
   const { currencyFrom, currencyTo, range } = useAppStore();
@@ -18,7 +22,13 @@ export const Main = () => {
       </div>
 
       <div className="px-3 py-3 flex-1 min-h-0 min-w-0 w-full h-full">
-        <Chart apiData={data ?? ({} as IHistoryResponse)} />
+        <Suspense
+          fallback={
+            <div className="w-full h-full rounded-lg bg-text/40 animate-pulse"></div>
+          }
+        >
+          <Chart apiData={data ?? ({} as IHistoryResponse)} />
+        </Suspense>
       </div>
     </div>
   );

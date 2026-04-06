@@ -1,6 +1,8 @@
 import { useDebounce } from "@/shared/lib/hooks/useDebounce";
 import { useAppStore } from "@/shared/store/app.store";
-import { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 
 interface IProps {
   isLeft: boolean;
@@ -13,39 +15,51 @@ export const CurrencyInput = ({ isLeft = true, code }: IProps) => {
 
   const externalValue = isLeft ? fromAmount : toAmount;
 
-  const [inputValue, setInputValue] = useState<number | "">(externalValue);
+  const [animatedValueState, setAnimatedValueState] = useState<number>(
+    Number(externalValue) || 0,
+  );
 
-  const [prevExternalValue, setPrevExternalValue] = useState(externalValue);
+  const animatedValue = useRef({ val: Number(externalValue) || 0 });
 
-  if (externalValue !== prevExternalValue) {
-    setPrevExternalValue(externalValue);
-    setInputValue(externalValue);
-  }
+  useGSAP(() => {
+    if (!isLeft && typeof externalValue === "number") {
+      gsap.to(animatedValue.current, {
+        val: externalValue,
+        duration: 1,
+        ease: "power2.out",
+        onUpdate: () => {
+          setAnimatedValueState(Number(animatedValue.current.val.toFixed(2)));
+        },
+      });
+    }
+  }, [externalValue]);
 
-  const debouncedValue = useDebounce(inputValue, 500);
+  const debouncedValue = useDebounce(fromAmount, 500);
 
   useEffect(() => {
-    if (isLeft && typeof debouncedValue === "number") {
-      setFromAmount(debouncedValue);
+    if (typeof debouncedValue === "number") {
       setToAmount(Number((debouncedValue * rate).toFixed(2)));
     }
-  }, [debouncedValue, isLeft, rate, setFromAmount, setToAmount]);
+  }, [debouncedValue, rate, setToAmount]);
 
   return (
     <div className="mt-auto flex">
       <input
         type="number"
         className="focus-visible:outline-none border-border border-b text-center text-5xl w-3/4"
-        value={inputValue}
+        value={isLeft ? fromAmount : animatedValueState}
         onChange={(e) => {
+          if (!isLeft) return;
+
           const val = e.target.value;
           if (val === "") {
-            setInputValue("");
+            setFromAmount(0);
             return;
           }
+
           const numValue = parseFloat(val);
           if (!isNaN(numValue)) {
-            setInputValue(numValue);
+            setFromAmount(numValue);
           }
         }}
         disabled={!isLeft}

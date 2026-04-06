@@ -14,4 +14,35 @@ export default defineConfig({
   resolve: {
     alias: [{ find: "@", replacement: path.resolve(__dirname, "src") }],
   },
+
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          // 1. Виносимо React та основні системні речі
+          if (
+            id.includes("node_modules/react") ||
+            id.includes("node_modules/react-dom")
+          ) {
+            return "vendor-core";
+          }
+
+          // 2. Виносимо Recharts (найважчий модуль)
+          if (id.includes("node_modules/recharts")) {
+            return "vendor-charts";
+          }
+
+          // 3. Виносимо TanStack Query
+          if (id.includes("node_modules/@tanstack")) {
+            return "vendor-query";
+          }
+
+          // 4. Всі інші бібліотеки (Zustand, Lucide, GSAP тощо)
+          if (id.includes("node_modules")) {
+            return "vendor-libs";
+          }
+        },
+      },
+    },
+  },
 });
