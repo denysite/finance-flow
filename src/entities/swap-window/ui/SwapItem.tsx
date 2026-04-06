@@ -3,6 +3,8 @@ import { useAppStore } from "@/shared/store/app.store";
 import { ArrowLeftRight } from "lucide-react";
 import { CurrencyInput } from "./CurrencyInput";
 
+import { useEffect } from "react";
+
 interface IProps {
   isLeft?: boolean;
 }
@@ -22,12 +24,14 @@ export const SwapItem = ({ isLeft = true }: IProps) => {
 
   const swap = () => {
     swapFromTo();
-
-    if (IWantText) {
-      setRate(IWantText);
-      setToAmount(Number((fromAmount * IWantText).toFixed(2)));
-    }
   };
+
+  useEffect(() => {
+    if (iHaveText && fromAmount > 0) {
+      setRate(iHaveText);
+      setToAmount(Number((fromAmount * iHaveText).toFixed(2)));
+    }
+  }, [iHaveText, fromAmount, setRate, setToAmount]);
 
   return (
     <div

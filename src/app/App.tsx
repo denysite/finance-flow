@@ -15,11 +15,27 @@ import toast, { Toaster } from "react-hot-toast";
 export function App() {
   const { data: allCurrencies, isError: isAllCurrenciesError } =
     useAllCurrencies();
-  const { setCurrencyFrom, setCurrencyTo, currencyFrom, currencyTo, range } =
-    useAppStore();
+  const {
+    setCurrencyFrom,
+    setCurrencyTo,
+    theme,
+    currencyFrom,
+    currencyTo,
+    range,
+  } = useAppStore();
 
   useFetchRate(currencyFrom, currencyTo);
   useFetchHistory(currencyFrom, currencyTo, range);
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [theme]);
 
   useEffect(() => {
     if (isAllCurrenciesError) toast.error("Error loading currencies");
@@ -34,12 +50,16 @@ export function App() {
 
   return (
     <>
-      <div className="m-2 grid grid-cols-[80vw_auto] grid-rows-[75vh_1fr] h-[calc(100vh-1rem)]">
-        <Main />
-        <History />
+      <div className="p-2 h-screen">
+        <div className="h-3/4 flex">
+          <Main />
+          <History />
+        </div>
 
-        <SwapWindow />
-        <Save />
+        <div className="h-1/4 flex">
+          <SwapWindow />
+          <Save />
+        </div>
       </div>
 
       <Toaster

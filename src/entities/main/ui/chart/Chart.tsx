@@ -33,12 +33,13 @@ export const Chart = ({ apiData }: ChartProps) => {
       <AreaChart data={data}>
         <CartesianGrid strokeWidth={0.1} />
         <XAxis dataKey="date" />
-        <YAxis domain={["auto", "auto"]} />
+        <YAxis domain={["auto", "auto"]} width={80} />
         <Tooltip
           contentStyle={{
             background: "var(--color-background)",
             border: "1px solid var(--color-border)",
           }}
+          isAnimationActive={false}
         />
         <Area
           type="monotone"

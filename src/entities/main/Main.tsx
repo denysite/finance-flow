@@ -10,7 +10,7 @@ export const Main = () => {
   const { data } = useFetchHistory(currencyFrom, currencyTo, range);
 
   return (
-    <div className="border-b border-border h-full flex flex-col">
+    <div className="border-b border-border flex flex-col w-full">
       <div className="section">
         <Header />
 

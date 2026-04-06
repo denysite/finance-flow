@@ -1,6 +1,7 @@
 import { useAppStore } from "@/shared/store/app.store";
 import { Moon, SidebarClose, SidebarOpen, Sun } from "lucide-react";
-import logo from "/logo.svg";
+import darkLogo from "/dark-logo.svg";
+import lightLogo from "/light-logo.svg";
 
 export const Header = () => {
   const { switchTheme, theme, toggleIsHistoryOpen, isHistoryOpen } =
@@ -24,7 +25,11 @@ export const Header = () => {
       </div>
 
       <div className="max-w-13 aspect-square">
-        <img src={`${logo}`} alt="" className="w-full" />
+        <img
+          src={`${theme === "dark" ? darkLogo : lightLogo}`}
+          alt=""
+          className="w-full"
+        />
       </div>
 
       <div>

@@ -1,13 +1,13 @@
 <svg width="64" height="64" viewBox="4 4 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#161B22"/>
-      <stop offset="1" stop-color="#0B0F14"/>
+      <stop stop-color="#0e131b"/>
+      <stop offset="1" stop-color="#0e131b"/>
     </linearGradient>
 
     <linearGradient id="accent" x1="20" y1="16" x2="46" y2="48" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#4F6BFF"/>
-      <stop offset="1" stop-color="#1D2BFF"/>
+      <stop stop-color="#001bfe"/>
+      <stop offset="1" stop-color="#001bfe"/>
     </linearGradient>
   </defs>
 
