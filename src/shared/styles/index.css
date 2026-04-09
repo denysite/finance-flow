@@ -44,6 +44,10 @@ body {
   color: var(--color-text);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 button {
   cursor: pointer;
 }
@@ -83,4 +87,8 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield; /* Standard property */
+}
+
+.recharts-wrapper * {
+  outline: none !important;
 }

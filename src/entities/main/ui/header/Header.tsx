@@ -32,7 +32,7 @@ export const Header = () => {
         />
       </div>
 
-      <div>
+      <div className="max-lg:hidden">
         <button
           onClick={toggleIsHistoryOpen}
           className="text-gray-400 transition hover:text-accent/80"

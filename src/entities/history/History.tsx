@@ -7,7 +7,7 @@ export const History = () => {
 
   return (
     <div
-      className={`section border-l border-border border-b flex flex-col ${isHistoryOpen ? "w-1/4" : "w-0 p-0! border-0! "} transition-all overflow-hidden`}
+      className={`section border-l border-border border-b flex flex-col ${isHistoryOpen ? "w-1/4 max-lg:w-full max-lg:border-0" : "w-0 p-0! border-0! "} transition-all overflow-hidden`}
     >
       <p className="text-4xl text-center mt-5 flex items-center justify-center gap-2">
         <HistoryIcon size={30} />

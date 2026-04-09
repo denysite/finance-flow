@@ -41,7 +41,7 @@ export const HistoryItem = ({ item }: { item: IHistoryItem }) => {
   }, [isErrorTo, item.currencyTo]);
 
   return (
-    <li className="mr-4 p-2 rounded-lg border border-border grid grid-cols-[1fr_auto_1fr] items-center">
+    <li className="mr-4 max-lg:mr-0  p-2 rounded-lg border border-border grid grid-cols-[1fr_auto_1fr] items-center">
       <div className={styles.block}>
         <div className={styles.imageBlock}>
           {isLoadingFrom || isErrorFrom ? (
@@ -51,7 +51,7 @@ export const HistoryItem = ({ item }: { item: IHistoryItem }) => {
           )}
         </div>
         <div className={styles.currencyBlock}>
-          <p>{item.currencyFrom}</p>
+          <p className={styles.currency}>{item.currencyFrom}</p>
           <p className={styles.amount}>{formatCurrency(item.valueFrom)}</p>
         </div>
       </div>
@@ -62,7 +62,7 @@ export const HistoryItem = ({ item }: { item: IHistoryItem }) => {
 
       <div className={`${styles.block} justify-self-end`}>
         <div className={styles.currencyBlock}>
-          <p>{item.currencyTo}</p>
+          <p className={styles.currency}>{item.currencyTo}</p>
           <p className={styles.amount}>{formatCurrency(item.valueTo)}</p>
         </div>
 

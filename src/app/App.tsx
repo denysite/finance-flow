@@ -9,7 +9,7 @@ import {
 } from "@/shared/api/currency/currency.query";
 import { useAppStore } from "@/shared/store/app.store";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 
 export function App() {
@@ -48,18 +48,37 @@ export function App() {
     }
   }, [allCurrencies, setCurrencyFrom, setCurrencyTo]);
 
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.matchMedia("(min-width: 64rem)").matches;
+    }
+    return true;
+  });
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 64rem)");
+
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
   return (
     <>
       <div className="p-2 h-screen">
-        <div className="h-3/4 flex">
+        <div className="h-3/4 [@media(max-height:40rem)]:max-h-85 [@media(max-height:40rem)]:h-full flex">
           <Main />
-          <History />
+
+          {isDesktop && <History />}
         </div>
 
-        <div className="h-1/4 flex">
+        <div className="h-1/4 [@media(max-height:48rem)]:h-auto flex overflow-y-hidden max-lg:border-b max-lg:border-border">
           <SwapWindow />
           <Save />
         </div>
+
+        {!isDesktop && <History />}
       </div>
 
       <Toaster

@@ -37,9 +37,11 @@ export const SwapItem = ({ isLeft = true }: IProps) => {
     <div
       className={`w-1/2 p-4 pl-7 flex flex-col relative ${isLeft ? "border-r border-border" : ""}`}
     >
-      <div className="text-3xl">{isLeft ? "I have" : "I want"}</div>
+      <div className="text-3xl max-xl:text-2xl">
+        {isLeft ? "I have" : "I want"}
+      </div>
 
-      <div className="text-secondary-text text-2xl mt-7">
+      <div className="text-secondary-text text-2xl mt-7 max-xl:text-xl">
         {isLeft ? (
           <p>
             1 {currencyFrom} = {iHaveText} {currencyTo}
