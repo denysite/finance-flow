@@ -66,7 +66,7 @@ export function App() {
 
   return (
     <>
-      <div className="p-2 h-screen">
+      <main className="p-2 h-screen">
         <div className="h-3/4 [@media(max-height:40rem)]:min-h-70 [@media(max-height:40rem)]:h-full flex">
           <Main />
 
@@ -79,7 +79,7 @@ export function App() {
         </div>
 
         {!isDesktop && <History />}
-      </div>
+      </main>
 
       <Toaster
         toastOptions={{

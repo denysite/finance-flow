@@ -45,6 +45,7 @@ export const CurrencyInput = ({ isLeft = true, code }: IProps) => {
   return (
     <div className="mt-auto flex">
       <input
+        aria-label="Amount from swap"
         type="number"
         className="focus-visible:outline-none border-border border-b text-center text-5xl w-3/4 max-xl:w-2/4 max-xl:text-3xl max-md:text-5xl max-sm:text-3xl"
         value={isLeft ? fromAmount : animatedValueState}

@@ -64,6 +64,7 @@ export const SwapItem = ({ isLeft = true }: IProps) => {
         <button
           className="absolute right-0 translate-x-1/2 top-1/2 -translate-y-1/2 cursor-pointer z-10 max-md:right-1/2 max-md:translate-x-1/2 max-md:bottom-0 max-md:translate-y-1/2"
           onClick={swap}
+          aria-label="Swap currencies"
         >
           <div className="bg-background p-2 border border-border rounded-lg hover:bg-muted transition-colors">
             <ArrowLeftRight size={30} />

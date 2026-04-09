@@ -34,6 +34,7 @@ export const Header = () => {
 
       <div className="max-lg:hidden">
         <button
+          aria-label="Switch theme"
           onClick={toggleIsHistoryOpen}
           className="text-gray-400 transition hover:text-accent/80"
         >

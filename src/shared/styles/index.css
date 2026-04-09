@@ -16,8 +16,8 @@
 
 .dark {
   --color-background: #0e131b;
-  --color-text: #f8fcfd9f;
-  --color-secondary-text: #5b5f60;
+  --color-text: #f8fcfd;
+  --color-secondary-text: #9ca3af;
   --chart-bg: var(--color-secondary-text);
   --color-accent: #001bfe;
   --color-border: #434748;
