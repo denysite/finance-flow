@@ -15,6 +15,7 @@ export const Header = () => {
         <button
           onClick={switchTheme}
           className="text-gray-400 transition hover:text-accent/80"
+          aria-label="Switch theme"
         >
           {theme === "dark" ? (
             <Sun size={iconSize} />
@@ -29,6 +30,8 @@ export const Header = () => {
           src={`${theme === "dark" ? darkLogo : lightLogo}`}
           alt=""
           className="w-full"
+          width={52}
+          height={52}
         />
       </div>
 
