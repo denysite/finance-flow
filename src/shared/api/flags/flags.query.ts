@@ -1,4 +1,3 @@
-// shared/hooks/useCurrencies.ts
 import { useQuery } from "@tanstack/react-query";
 import { flagsApi } from "./flags.api";
 

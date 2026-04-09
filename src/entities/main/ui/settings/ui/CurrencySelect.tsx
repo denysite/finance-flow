@@ -1,10 +1,10 @@
 import type { TAllCurrency } from "@/shared/api/currency/currency.types";
 import { useFlags } from "@/shared/api/flags/flags.query";
 import { useAppStore } from "@/shared/store/app.store";
-import { useCallback, useMemo, useState } from "react"; // Додано useMemo
+import { useCallback, useMemo, useState } from "react";
 
 import clsx from "clsx";
-import { ChevronDown, Search } from "lucide-react"; // Додано Search
+import { ChevronDown, Search } from "lucide-react";
 import styles from "./CurrencySelect.module.scss";
 import { CurrencySelectItem } from "./CurrencySelectItem";
 
@@ -15,7 +15,7 @@ interface IItem {
 
 export const CurrencySelect = ({ options, isFrom = true }: IItem) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [searchQuery, setSearchQuery] = useState<string>(""); // Стан для пошуку
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const { currencyFrom, currencyTo } = useAppStore();
   const active = isFrom ? currencyFrom : currencyTo;
@@ -29,12 +29,11 @@ export const CurrencySelect = ({ options, isFrom = true }: IItem) => {
         useAppStore.getState().setCurrencyTo(currency);
       }
       setIsOpen(false);
-      setSearchQuery(""); // Скидаємо пошук при виборі
+      setSearchQuery("");
     },
     [isFrom],
   );
 
-  // Фільтрація опцій на основі пошуку
   const filteredOptions = useMemo(() => {
     if (!options) return [];
     return options.filter(

@@ -8,9 +8,9 @@ export const Save = () => {
   const { fromAmount, toAmount, currencyFrom, currencyTo } = useAppStore();
 
   return (
-    <div className="w-1/4 flex justify-center">
+    <div className="w-1/4 max-sm:w-full max-md:w-2/5 flex justify-center">
       <button
-        className="bg-[#67696f]/60 m-auto flex-col gap-2 text-4xl dark:text-white/60 text-white px-4 py-7 rounded-lg max-w-[80%] w-full max-h-[80%] h-full transition hover:bg-[#67696f]/75"
+        className="bg-[#67696f]/60 m-auto flex-col gap-2 text-4xl dark:text-white/60 text-white px-4 py-7 rounded-lg max-w-[80%] w-full max-h-[80%] h-full transition hover:bg-[#67696f]/75 max-md:h-max max-md:py-10 max-md:max-w-[70%] max-sm:mb-2 max-sm:py-4"
         onClick={() =>
           addHistory({
             valueFrom: fromAmount,
@@ -21,7 +21,7 @@ export const Save = () => {
           })
         }
       >
-        <SaveIcon size={40} className="mx-auto" />
+        <SaveIcon className="mx-auto w-10 h-10" />
         <p>Save</p>
       </button>
     </div>

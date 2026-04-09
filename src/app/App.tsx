@@ -67,13 +67,13 @@ export function App() {
   return (
     <>
       <div className="p-2 h-screen">
-        <div className="h-3/4 [@media(max-height:40rem)]:max-h-85 [@media(max-height:40rem)]:h-full flex">
+        <div className="h-3/4 [@media(max-height:40rem)]:min-h-70 [@media(max-height:40rem)]:h-full flex">
           <Main />
 
           {isDesktop && <History />}
         </div>
 
-        <div className="h-1/4 [@media(max-height:48rem)]:h-auto flex overflow-y-hidden max-lg:border-b max-lg:border-border">
+        <div className="h-1/4 [@media(max-height:48rem)]:h-auto flex overflow-y-hidden max-lg:border-b max-lg:border-border max-sm:flex-col">
           <SwapWindow />
           <Save />
         </div>

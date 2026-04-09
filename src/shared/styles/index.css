@@ -37,6 +37,10 @@
   --default-transition-timing-function: ease;
 }
 
+@theme {
+  --breakpoint-sm: 30rem;
+}
+
 body {
   margin: 0;
   padding: 0;
